@@ -1,4 +1,4 @@
-package com.zakrzewski.zostawapp.ZostawApp;
+package com.zakrzewski.zostawapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
