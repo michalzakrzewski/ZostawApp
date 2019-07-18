@@ -1,4 +1,4 @@
-# "Zostaw tu!"
+# Zostaw tu!
 ## Spis treści
 * [O aplikacji](#o-aplikacji)
 * [Technologie](#technologie)
