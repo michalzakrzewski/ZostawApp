@@ -1,19 +1,20 @@
-### "Zostaw tu! App"
-Hello! My name is Michal. I'm 25 years old. I'm a Junior Developer. My favorite language is Java. I try to learn Spring Boot, PostgreSQL.
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
+# "Zostaw tu!"
+## Spis treści
+* [O aplikacji](#o-aplikacji)
+* [Technologie](#technologie)
 
-## General info
-Zostaw Tu! - application when we create advertisement... 
+## O aplikacji
+Aplikacja umożliwiające .....
 	
-## Technologies
-Project is created with:
+## Technologie
+Wykorzystane technologie
 * IntelliJ IDEA
 * Spring-Boot
-* Sourcetree for github
-	
-## Setup
-To run this project, install it locally using... ----===----
+* Sourcetree(git)
+
+  
+ 
+  
+
+
   
