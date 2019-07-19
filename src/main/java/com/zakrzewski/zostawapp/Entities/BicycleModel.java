@@ -1,5 +1,9 @@
 package com.zakrzewski.zostawapp.Entities;
 
+import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,13 +21,15 @@ public class BicycleModel {
     private Boolean isFree;
 
     @Column(name = "bicycle_owner", nullable = false)
-    private UserModel userOwner;
+    private Long idOwner;
 
-    public BicycleModel(Long id, Long bicycleNumber, Boolean isFree, UserModel userOwner) {
+    public BicycleModel(Long id, Long bicycleNumber, Boolean isFree) {
         this.id = id;
         this.bicycleNumber = bicycleNumber;
         this.isFree = isFree;
-        this.userOwner = userOwner;
+        UserModel userModel = new UserModel();
+        this.idOwner = userModel.getId();
+
     }
 
     public BicycleModel() {
@@ -51,13 +57,5 @@ public class BicycleModel {
 
     public void setFree(Boolean free) {
         isFree = free;
-    }
-
-    public UserModel getUserOwner() {
-        return userOwner;
-    }
-
-    public void setUserOwner(UserModel userOwner) {
-        this.userOwner = userOwner;
     }
 }
