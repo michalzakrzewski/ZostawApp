@@ -10,6 +10,9 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "login_user", nullable = false, length = 10)
+    private String loginUser;
+
     @Column(name = "first_name", nullable = false, length = 30)
     private String firstName;
 
@@ -25,7 +28,8 @@ public class UserModel {
     @Column(name = "card_id_number", nullable = false, length = 9)
     private String cardIdNumber;
 
-    public UserModel(Long id, String firstName, String lastName, long peselNumber, long phoneNumber, String cardIdNumber) {
+    public UserModel(String loginUser, Long id, String firstName, String lastName, long peselNumber, long phoneNumber, String cardIdNumber) {
+        this.loginUser = loginUser;
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
