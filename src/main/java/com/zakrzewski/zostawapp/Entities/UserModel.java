@@ -37,12 +37,12 @@ public class UserModel implements UserDetails {
     private String peselNumber;
 
     @Column(name = "phone_number", nullable = false)
-    private long phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "user_role", nullable = false)
     private String roleUser;
 
-    public UserModel(String userLogin, String passwordUser, String firstName, String lastName, String peselNumber, long phoneNumber, String roleUser){
+    public UserModel(String userLogin, String passwordUser, String firstName, String lastName, String peselNumber, String phoneNumber, String roleUser){
         this.userLogin = userLogin;
         this.passwordUser = passwordEncoder().encode(passwordUser);
         this.firstName = firstName;
@@ -103,11 +103,11 @@ public class UserModel implements UserDetails {
         this.peselNumber = peselNumber;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

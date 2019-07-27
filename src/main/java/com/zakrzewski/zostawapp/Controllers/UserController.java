@@ -5,6 +5,7 @@ import com.zakrzewski.zostawapp.Services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,9 +19,23 @@ public class UserController {
         this.userServiceImpl = userServiceImpl;
     }
 
+    @RequestMapping(value = "/get/users", method = RequestMethod.GET)
+    public List<String> getUsersInfo(){
+        List<String> showUsers = new ArrayList<>();
+        List<UserModel> ourUser = userServiceImpl.getAllUsers();
+        for (UserModel userModel : ourUser) {
+            showUsers.add(userModel.getUserLogin());
+            showUsers.add(userModel.getFirstName());
+            showUsers.add(userModel.getLastName());
+            showUsers.add(userModel.getPhoneNumber());
+        }
+        return showUsers;
+    }
+
     @RequestMapping(value = "/get/all-users", method = RequestMethod.GET)
     public List<UserModel> getAllUsers(){
-        return userServiceImpl.getAllUsers();
+        List<UserModel> ourUser = userServiceImpl.getAllUsers();
+        return ourUser;
     }
 
     @RequestMapping(value = "/get/user/{id}", method = RequestMethod.GET)

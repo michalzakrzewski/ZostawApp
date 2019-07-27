@@ -51,8 +51,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @EventListener(ApplicationReadyEvent.class)
     public void createFinalUsers(){
-        UserModel userUserModel  = new UserModel("user", "test", "User", "User", "22031129488", 789789789, "ROLE_USER");
-        UserModel adminAdminModel = new UserModel("admin", "test", "Admin", "Admin", "20111679638", 456789123, "ROLE_ADMIN");
+        UserModel userUserModel  = new UserModel("user", "test", "User", "User", "22031129488", "789789789", "ROLE_USER");
+        UserModel adminAdminModel = new UserModel("admin", "test", "Admin", "Admin", "20111679638", "456789123", "ROLE_ADMIN");
         userRepository.save(userUserModel);
         userRepository.save(adminAdminModel);
     }
