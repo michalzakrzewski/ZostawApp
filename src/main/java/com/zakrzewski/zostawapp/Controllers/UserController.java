@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v1")
+@RequestMapping(value = "/api")
 public class UserController {
 
     private UserServiceImpl userServiceImpl;
@@ -18,9 +18,15 @@ public class UserController {
         this.userServiceImpl = userServiceImpl;
     }
 
+    @RequestMapping(value = "/get/users", method = RequestMethod.GET)
+    public List<String> getUsersInfo(){
+        return userServiceImpl.getUsersInfo();
+    }
+
     @RequestMapping(value = "/get/all-users", method = RequestMethod.GET)
     public List<UserModel> getAllUsers(){
-        return userServiceImpl.getAllUsers();
+        List<UserModel> ourUser = userServiceImpl.getAllUsers();
+        return ourUser;
     }
 
     @RequestMapping(value = "/get/user/{id}", method = RequestMethod.GET)

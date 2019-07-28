@@ -1,7 +1,6 @@
 package com.zakrzewski.zostawapp.Entities;
 
 import com.zakrzewski.zostawapp.Validations.PeselValidation;
-import org.hibernate.validator.internal.constraintvalidators.hv.pl.PESELValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -37,14 +36,14 @@ public class UserModel implements UserDetails {
     private String peselNumber;
 
     @Column(name = "phone_number", nullable = false)
-    private long phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "user_role", nullable = false)
     private String roleUser;
 
-    public UserModel(String userLogin, String passwordUser, String firstName, String lastName, String peselNumber, long phoneNumber, String roleUser){
+    public UserModel(String userLogin, String passwordUser, String firstName, String lastName, String peselNumber, String phoneNumber, String roleUser){
         this.userLogin = userLogin;
-        this.passwordUser = passwordEncoder().encode(passwordUser);
+        this.passwordUser = passwordUser;
         this.firstName = firstName;
         this.lastName = lastName;
         this.peselNumber = PeselValidation.validatePeselNumber(peselNumber);
@@ -103,11 +102,11 @@ public class UserModel implements UserDetails {
         this.peselNumber = peselNumber;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
