@@ -1,7 +1,6 @@
 package com.zakrzewski.zostawapp.Entities;
 
 import com.zakrzewski.zostawapp.Validations.PeselValidation;
-import org.hibernate.validator.internal.constraintvalidators.hv.pl.PESELValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -44,7 +43,7 @@ public class UserModel implements UserDetails {
 
     public UserModel(String userLogin, String passwordUser, String firstName, String lastName, String peselNumber, String phoneNumber, String roleUser){
         this.userLogin = userLogin;
-        this.passwordUser = passwordEncoder().encode(passwordUser);
+        this.passwordUser = passwordUser;
         this.firstName = firstName;
         this.lastName = lastName;
         this.peselNumber = PeselValidation.validatePeselNumber(peselNumber);

@@ -24,10 +24,11 @@ public class UserController {
         List<String> showUsers = new ArrayList<>();
         List<UserModel> ourUser = userServiceImpl.getAllUsers();
         for (UserModel userModel : ourUser) {
-            showUsers.add(userModel.getUserLogin());
-            showUsers.add(userModel.getFirstName());
-            showUsers.add(userModel.getLastName());
-            showUsers.add(userModel.getPhoneNumber());
+            showUsers.add("User Login: " + userModel.getUserLogin());
+            showUsers.add("User First Name: " + userModel.getFirstName());
+            showUsers.add("User Last Name: " + userModel.getLastName());
+            showUsers.add("User Phone Number: " + userModel.getPhoneNumber());
+            showUsers.add("==============================================");
         }
         return showUsers;
     }
