@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/api/v1")
+@RequestMapping(value = "/api")
 public class AdvertisementController {
 
     private AdvertisementServiceImpl advertisementService;

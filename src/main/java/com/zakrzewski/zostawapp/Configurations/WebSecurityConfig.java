@@ -1,7 +1,9 @@
 package com.zakrzewski.zostawapp.Configurations;
 
 
+import com.zakrzewski.zostawapp.Entities.AdvertisementModel;
 import com.zakrzewski.zostawapp.Entities.UserModel;
+import com.zakrzewski.zostawapp.Repositories.AdvertisementRepository;
 import com.zakrzewski.zostawapp.Repositories.UserRepository;
 import com.zakrzewski.zostawapp.Services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +23,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsServiceImpl userDetailsService;
     private UserRepository userRepository;
 
-    private String versionApp = "/api/v1";
+    private AdvertisementRepository advertisementRepository;
+
+    private String versionApp = "/api";
 
     @Autowired
-    public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, UserRepository userRepository) {
+    public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, UserRepository userRepository, AdvertisementRepository advertisementRepository) {
         this.userDetailsService = userDetailsService;
         this.userRepository = userRepository;
+        this.advertisementRepository = advertisementRepository;
     }
 
     @Override
@@ -44,19 +49,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(versionApp + "/add/user").hasRole("ADMIN")
                 .antMatchers(versionApp + "/edit-user/{id}").hasRole("ADMIN")
                 .antMatchers(versionApp + "/delete-user/{id}").hasRole("ADMIN")
+                .antMatchers(versionApp + "/get/all-advertisement").permitAll()
+                .antMatchers(versionApp + "/get/advertisement/{id}").permitAll()
+                .antMatchers(versionApp + "/add-advertisement").hasRole("USER")
+                .antMatchers(versionApp + "/edit-advertisement/{id}").hasRole("ADMIN")
+                .antMatchers(versionApp + "/delete-advertisement/{id}").hasRole("ADMIN")
                 .and()
                 .formLogin().permitAll()
                 .and()
                 .csrf().disable();
     }
 
-    //TODO add new advertisement for test like users.
     @EventListener(ApplicationReadyEvent.class)
-    public void createFinalUsers(){
+    public void createFinalUsersAndAdvertisement(){
         UserModel userUserModel  = new UserModel("user", passwordEncoder().encode("test"), "User", "User", "22031129488", "789789789", "ROLE_USER");
         UserModel adminAdminModel = new UserModel("admin", passwordEncoder().encode("test"), "Admin", "Admin", "20111679638", "456789123", "ROLE_ADMIN");
+        AdvertisementModel advertisementOne = new AdvertisementModel("Ogłoszenie nr 1", userUserModel.getFirstName(), 31231231233L);
+        AdvertisementModel advertisementTwo = new AdvertisementModel("Ogłoszenie nr 2", adminAdminModel.getFirstName(), 4564564654654L);
         userRepository.save(userUserModel);
         userRepository.save(adminAdminModel);
+
+        advertisementRepository.save(advertisementOne);
+        advertisementRepository.save(advertisementTwo);
+
     }
 
     @Bean

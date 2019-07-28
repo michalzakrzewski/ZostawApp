@@ -17,7 +17,7 @@ public class UserServiceImpl {
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    
+
     public List<String> getUsersInfo(){
         List<String> showUsers = new ArrayList<>();
         List<UserModel> ourUser = userRepository.findAll();

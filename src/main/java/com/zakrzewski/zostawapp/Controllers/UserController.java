@@ -5,11 +5,10 @@ import com.zakrzewski.zostawapp.Services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v1")
+@RequestMapping(value = "/api")
 public class UserController {
 
     private UserServiceImpl userServiceImpl;
