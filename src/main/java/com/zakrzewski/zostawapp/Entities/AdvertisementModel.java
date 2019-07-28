@@ -16,12 +16,16 @@ public class AdvertisementModel {
     @Column(name = "advertisement_signature", nullable = false)
     private String signatureAdvertisement;
 
+    @Column(name = "who_add_id")
+    private Long userWhoAddId;
+
     public AdvertisementModel() {
     }
 
-    public AdvertisementModel(String advertisementContents, String signatureAdvertisement) {
+    public AdvertisementModel(String advertisementContents, String signatureAdvertisement, Long userWhoAddId) {
         this.advertisementContents = advertisementContents;
         this.signatureAdvertisement = signatureAdvertisement;
+        this.userWhoAddId = userWhoAddId;
     }
 
     public Long getId() {
@@ -46,5 +50,13 @@ public class AdvertisementModel {
 
     public void setSignatureAdvertisement(String signatureAdvertisement) {
         this.signatureAdvertisement = signatureAdvertisement;
+    }
+
+    public Long getUserWhoAddId() {
+        return userWhoAddId;
+    }
+
+    public void setUserWhoAddId(Long userWhoAddId) {
+        this.userWhoAddId = userWhoAddId;
     }
 }

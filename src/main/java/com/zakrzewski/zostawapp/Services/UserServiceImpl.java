@@ -3,9 +3,6 @@ package com.zakrzewski.zostawapp.Services;
 import com.zakrzewski.zostawapp.Entities.UserModel;
 import com.zakrzewski.zostawapp.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +16,8 @@ public class UserServiceImpl {
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
+    //TODO dodać metode dla normalnych userów. Przenieść z kontrollera.
 
     public List<UserModel> getAllUsers(){
         List<UserModel> userModelList = userRepository.findAll();
