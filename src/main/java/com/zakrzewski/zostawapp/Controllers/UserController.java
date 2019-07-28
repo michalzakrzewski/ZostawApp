@@ -21,16 +21,7 @@ public class UserController {
 
     @RequestMapping(value = "/get/users", method = RequestMethod.GET)
     public List<String> getUsersInfo(){
-        List<String> showUsers = new ArrayList<>();
-        List<UserModel> ourUser = userServiceImpl.getAllUsers();
-        for (UserModel userModel : ourUser) {
-            showUsers.add("User Login: " + userModel.getUserLogin());
-            showUsers.add("User First Name: " + userModel.getFirstName());
-            showUsers.add("User Last Name: " + userModel.getLastName());
-            showUsers.add("User Phone Number: " + userModel.getPhoneNumber());
-            showUsers.add("==============================================");
-        }
-        return showUsers;
+        return userServiceImpl.getUsersInfo();
     }
 
     @RequestMapping(value = "/get/all-users", method = RequestMethod.GET)

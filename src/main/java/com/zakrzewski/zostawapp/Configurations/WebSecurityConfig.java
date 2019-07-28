@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService);
     }
 
+    //TODO add new matchers with advertisement.
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -49,6 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
     }
 
+    //TODO add new advertisement for test like users.
     @EventListener(ApplicationReadyEvent.class)
     public void createFinalUsers(){
         UserModel userUserModel  = new UserModel("user", passwordEncoder().encode("test"), "User", "User", "22031129488", "789789789", "ROLE_USER");

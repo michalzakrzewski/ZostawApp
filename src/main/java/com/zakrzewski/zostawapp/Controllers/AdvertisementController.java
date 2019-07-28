@@ -19,28 +19,28 @@ public class AdvertisementController {
         this.advertisementService = advertisementService;
     }
 
-    @RequestMapping(name = "/get/all-advertisement", method = RequestMethod.GET)
+    @RequestMapping(value = "/get/all-advertisement", method = RequestMethod.GET)
     public List<AdvertisementModel> getAllAdvertisement(){
         List<AdvertisementModel> advertisementModelList =  advertisementService.getAllAdvertisement();
         return advertisementModelList;
     }
 
-    @RequestMapping(name = "/get/advertisement/{id}", method = RequestMethod.GET)
-    public AdvertisementModel getOneAdvertisement(Long id){
+    @RequestMapping(value = "/get/advertisement/{id}", method = RequestMethod.GET)
+    public AdvertisementModel getOneAdvertisement(@PathVariable Long id){
         return advertisementService.getOneAdvertisement(id);
     }
 
-    @RequestMapping(name = "/add-advertisement", method = RequestMethod.POST)
+    @RequestMapping(value = "/add-advertisement", method = RequestMethod.POST)
     public void addNewAdvertisement(@RequestBody AdvertisementModel advertisementModel){
         advertisementService.addNewAdvertisement(advertisementModel);
     }
 
-    @RequestMapping(name = "/edit-advertisement/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/edit-advertisement/{id}", method = RequestMethod.PUT)
     public void editAdvertisement(@PathVariable Long id, @RequestBody AdvertisementModel advertisementModel){
         advertisementService.editAdvertisement(id, advertisementModel);
     }
 
-    @RequestMapping(name = "/delete-advertisement/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete-advertisement/{id}", method = RequestMethod.DELETE)
     public void deleteAdvertisement(@PathVariable Long id){
         advertisementService.deleteAdvertisement(id);
     }
