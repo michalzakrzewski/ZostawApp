@@ -17,12 +17,12 @@ public class AdvertisementModel {
     private String signatureAdvertisement;
 
     @Column(name = "who_add_id")
-    private Long userWhoAddId;
+    private int userWhoAddId;
 
     public AdvertisementModel() {
     }
 
-    public AdvertisementModel(String advertisementContents, String signatureAdvertisement, Long userWhoAddId) {
+    public AdvertisementModel(String advertisementContents, String signatureAdvertisement, int userWhoAddId) {
         this.advertisementContents = advertisementContents;
         this.signatureAdvertisement = signatureAdvertisement;
         this.userWhoAddId = userWhoAddId;
@@ -52,11 +52,11 @@ public class AdvertisementModel {
         this.signatureAdvertisement = signatureAdvertisement;
     }
 
-    public Long getUserWhoAddId() {
+    public int getUserWhoAddId() {
         return userWhoAddId;
     }
 
-    public void setUserWhoAddId(Long userWhoAddId) {
+    public void setUserWhoAddId(int userWhoAddId) {
         this.userWhoAddId = userWhoAddId;
     }
 }
