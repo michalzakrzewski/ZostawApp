@@ -41,6 +41,9 @@ public class UserModel implements UserDetails {
     @Column(name = "user_role", nullable = false)
     private String roleUser;
 
+    @Column(name = "special_user_id", nullable = false)
+    private int specialUserId;
+
     public UserModel(String userLogin, String passwordUser, String firstName, String lastName, String peselNumber, String phoneNumber, String roleUser){
         this.userLogin = userLogin;
         this.passwordUser = passwordUser;
@@ -49,6 +52,11 @@ public class UserModel implements UserDetails {
         this.peselNumber = PeselValidation.validatePeselNumber(peselNumber);
         this.phoneNumber = phoneNumber;
         this.roleUser = roleUser;
+        this.specialUserId = GenerateSpecialUserId();
+    }
+
+    private int GenerateSpecialUserId() {
+        return (int) (9999 * Math.random() + 1);
     }
 
     public UserModel() {
@@ -116,6 +124,10 @@ public class UserModel implements UserDetails {
 
     public void setRoleUser(String roleUser) {
         this.roleUser = roleUser;
+    }
+
+    public int getSpecialUserId() {
+        return specialUserId;
     }
 
     @Override
