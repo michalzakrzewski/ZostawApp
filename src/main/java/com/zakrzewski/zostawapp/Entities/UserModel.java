@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Random;
 
 @Entity
 @Table(name = "users")
@@ -44,19 +45,21 @@ public class UserModel implements UserDetails {
     @Column(name = "special_user_id", nullable = false)
     private int specialUserId;
 
+    private static Random random = new Random();
+
     public UserModel(String userLogin, String passwordUser, String firstName, String lastName, String peselNumber, String phoneNumber, String roleUser){
         this.userLogin = userLogin;
-        this.passwordUser = passwordUser;
+        this.passwordUser = passwordEncoder().encode(passwordUser);
         this.firstName = firstName;
         this.lastName = lastName;
         this.peselNumber = PeselValidation.validatePeselNumber(peselNumber);
         this.phoneNumber = phoneNumber;
         this.roleUser = roleUser;
-        this.specialUserId = GenerateSpecialUserId();
+        this.specialUserId = random.nextInt(9999);
     }
 
-    private int GenerateSpecialUserId() {
-        return (int) (9999 * Math.random() + 1);
+    private int generateSpecialUserId() {
+        return this.random.nextInt(9999);
     }
 
     public UserModel() {
