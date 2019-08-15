@@ -39,13 +39,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add-user", method = RequestMethod.POST)
-    public void addNewUser(@RequestBody UserModel userModel){
-        userServiceImpl.addNewUserInfo(userModel);
+    public UserModel addNewUser(@RequestBody UserModel userModel){
+         return userServiceImpl.addNewUserInfo(userModel);
     }
 
     @RequestMapping(value = "/edit-user/{id}", method = RequestMethod.PUT)
-    public void updateUser(@RequestBody UserModel userModel, @PathVariable Long id){
-        userServiceImpl.editUser(id, userModel);
+    public UserModel updateUser(@RequestBody UserModel userModel, @PathVariable Long id){
+         return userServiceImpl.editUser(id, userModel);
     }
 
     @RequestMapping(value = "/delete-user/{id}", method = RequestMethod.DELETE)
