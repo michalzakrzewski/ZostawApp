@@ -65,8 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void createFinalUsersAndAdvertisement(){
         UserModel userUserModel  = new UserModel("user", "test", "User", "User", "22031129488", "789789789", "ROLE_USER");
         UserModel adminAdminModel = new UserModel("admin", "test", "Admin", "Admin", "20111679638", "456789123", "ROLE_ADMIN");
-        AdvertisementModel advertisementOne = new AdvertisementModel("Ogłoszenie nr 1", userUserModel.getFirstName(), userUserModel.getSpecialUserId());
-        AdvertisementModel advertisementTwo = new AdvertisementModel("Ogłoszenie nr 2", adminAdminModel.getFirstName(), adminAdminModel.getSpecialUserId());
+        AdvertisementModel advertisementOne = new AdvertisementModel("Ogłoszenie nr 1", userUserModel.getFirstName());
+        AdvertisementModel advertisementTwo = new AdvertisementModel("Ogłoszenie nr 2", adminAdminModel.getFirstName());
         userRepository.save(userUserModel);
         userRepository.save(adminAdminModel);
 

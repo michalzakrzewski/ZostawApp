@@ -41,7 +41,6 @@ public class UserController {
     @RequestMapping(value = "/add-user", method = RequestMethod.POST)
     public void addNewUser(@RequestBody UserModel userModel){
         userServiceImpl.addNewUserInfo(userModel);
-        System.out.println(userModel.getSpecialUserId());
     }
 
     @RequestMapping(value = "/edit-user/{id}", method = RequestMethod.PUT)

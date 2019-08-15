@@ -12,6 +12,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
@@ -42,11 +43,6 @@ public class UserModel implements UserDetails {
     @Column(name = "user_role", nullable = false)
     private String roleUser;
 
-    @Column(name = "special_user_id", nullable = false)
-    private int specialUserId;
-
-    private static Random random = new Random();
-
     public UserModel(String userLogin, String passwordUser, String firstName, String lastName, String peselNumber, String phoneNumber, String roleUser){
         this.userLogin = userLogin;
         this.passwordUser = passwordEncoder().encode(passwordUser);
@@ -55,11 +51,6 @@ public class UserModel implements UserDetails {
         this.peselNumber = PeselValidation.validatePeselNumber(peselNumber);
         this.phoneNumber = phoneNumber;
         this.roleUser = roleUser;
-        this.specialUserId = random.nextInt(9999);
-    }
-
-    private int generateSpecialUserId() {
-        return this.random.nextInt(9999);
     }
 
     public UserModel() {
@@ -129,9 +120,6 @@ public class UserModel implements UserDetails {
         this.roleUser = roleUser;
     }
 
-    public int getSpecialUserId() {
-        return specialUserId;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

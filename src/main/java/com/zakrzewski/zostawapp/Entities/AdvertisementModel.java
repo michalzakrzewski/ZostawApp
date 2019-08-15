@@ -1,6 +1,7 @@
 package com.zakrzewski.zostawapp.Entities;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "advertisement")
@@ -16,16 +17,12 @@ public class AdvertisementModel {
     @Column(name = "advertisement_signature", nullable = false)
     private String signatureAdvertisement;
 
-    @Column(name = "who_add_id")
-    private int userWhoAddId;
-
     public AdvertisementModel() {
     }
 
-    public AdvertisementModel(String advertisementContents, String signatureAdvertisement, int userWhoAddId) {
+    public AdvertisementModel(String advertisementContents, String signatureAdvertisement) {
         this.advertisementContents = advertisementContents;
         this.signatureAdvertisement = signatureAdvertisement;
-        this.userWhoAddId = userWhoAddId;
     }
 
     public Long getId() {
@@ -50,13 +47,5 @@ public class AdvertisementModel {
 
     public void setSignatureAdvertisement(String signatureAdvertisement) {
         this.signatureAdvertisement = signatureAdvertisement;
-    }
-
-    public int getUserWhoAddId() {
-        return userWhoAddId;
-    }
-
-    public void setUserWhoAddId(int userWhoAddId) {
-        this.userWhoAddId = userWhoAddId;
     }
 }
