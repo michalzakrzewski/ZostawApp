@@ -33,6 +33,7 @@ User posiada dostęp do:
 
 Każdy posiada dostęp do:
 * localhost:8080/api/get/users - wyświetlenie ograniczonych informacji o użytkowniku
+* localhost:8080/api/get/advertisement-user/{signature} - wyświetlenie ogłoszenia konkretnego uzytkownika, gdzie signature to podpis użytkownika
 * localhost:8080/api/get/all-advertisement - wyświetlenie informacji o wszystkich 
 * localhost:8080/api/get/advertisement/{id} - wyświetlenie informacji o konkretnym ogłoszeniu po Id
  

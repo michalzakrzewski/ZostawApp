@@ -50,6 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(versionApp + "/add-user").hasRole("ADMIN")
                 .antMatchers(versionApp + "/edit-user/{id}").hasRole("ADMIN")
                 .antMatchers(versionApp + "/delete-user/{id}").hasRole("ADMIN")
+                .antMatchers(versionApp + "/get/advertisement-user/{signature}").permitAll()
                 .antMatchers(versionApp + "/get/all-advertisement").permitAll()
                 .antMatchers(versionApp + "/get/advertisement/{id}").permitAll()
                 .antMatchers(versionApp + "/add-advertisement").hasRole("USER")

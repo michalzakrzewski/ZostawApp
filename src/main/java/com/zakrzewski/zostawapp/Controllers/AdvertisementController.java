@@ -19,6 +19,11 @@ public class AdvertisementController {
         this.advertisementService = advertisementService;
     }
 
+    @RequestMapping(value = "/get/advertisement-user/{signature}", method = RequestMethod.GET)
+    public AdvertisementModel getAdvertisementBySignature(@PathVariable String signature){
+        return advertisementService.getAdvertisementBySignature(signature);
+    }
+
     @RequestMapping(value = "/get/all-advertisement", method = RequestMethod.GET)
     public List<AdvertisementModel> getAllAdvertisement(){
         List<AdvertisementModel> advertisementModelList =  advertisementService.getAllAdvertisement();

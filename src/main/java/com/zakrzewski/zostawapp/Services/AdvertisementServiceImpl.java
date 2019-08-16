@@ -38,4 +38,7 @@ public class AdvertisementServiceImpl {
     }
 
 
+    public AdvertisementModel getAdvertisementBySignature(String signature) {
+        return advertisementRepository.findBySignatureAdvertisement(signature);
+    }
 }
