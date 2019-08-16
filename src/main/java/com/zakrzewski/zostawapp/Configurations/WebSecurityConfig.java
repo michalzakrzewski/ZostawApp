@@ -74,9 +74,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         advertisementRepository.save(advertisementTwo);
 
     }
-
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 }
